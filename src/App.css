@@ -1,5 +1,5 @@
 /* Import centralized design tokens FIRST (before Tailwind) */
-@import "../../design-system/tokens.css";
+/* Note: Design tokens file not available in this repo - using inline values */
 
 @tailwind base;
 @tailwind components;

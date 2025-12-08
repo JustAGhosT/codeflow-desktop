@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
-import { RefreshCw, TrendingUp, Activity, Zap, Search } from 'lucide-react';
+import { RefreshCw, TrendingUp, Activity, Search } from 'lucide-react';
 
 interface PlatformData {
   id: string;
@@ -61,15 +61,9 @@ const PlatformAnalytics: React.FC = () => {
     const loadData = async () => {
       setIsLoading(true);
       try {
-        const data = await import('../../../configs/platforms/ai_platforms.json');
-        const platforms = data.platforms.map((p: any) => ({
-          ...p,
-          detectionCount: Math.floor(Math.random() * 200),
-          avgConfidence: Math.random() * (0.98 - 0.8) + 0.8,
-          lastDetected: new Date().toISOString(),
-          trend: ['up', 'down', 'stable'][Math.floor(Math.random() * 3)],
-        }));
-        setPlatforms(platforms);
+        // Try to fetch from engine API if available, otherwise use mock data
+        // For now, use mock data since configs are in the engine repo
+        setPlatforms(mockPlatforms);
       } catch (error) {
         console.error('Error loading platform data:', error);
         setPlatforms(mockPlatforms);

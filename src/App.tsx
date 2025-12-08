@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Home, Settings, FileText, Moon, Sun, BarChart3 } from 'lucide-react';
-import { useState, useEffect } from 'react';
 import Dashboard from './pages/Dashboard';
 import Configuration from './pages/Configuration';
 import Logs from './pages/Logs';
