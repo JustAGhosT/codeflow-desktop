@@ -119,9 +119,11 @@ The desktop application communicates with CodeFlow Engine via:
 
 ## Related Repositories
 
-- [`codeflow-engine`](../codeflow-engine) - Core engine (communicates via API)
-- [`codeflow-infrastructure`](../codeflow-infrastructure) - Production infrastructure
-- [`codeflow-vscode-extension`](../codeflow-vscode-extension) - VS Code extension
+- [`codeflow-engine`](https://github.com/JustAGhosT/codeflow-engine) - Core engine (communicates via API)
+- [`codeflow-infrastructure`](https://github.com/JustAGhosT/codeflow-infrastructure) - Production infrastructure
+- [`codeflow-vscode-extension`](https://github.com/JustAGhosT/codeflow-vscode-extension) - VS Code extension
+- [`codeflow-azure-setup`](https://github.com/JustAGhosT/codeflow-azure-setup) - Azure bootstrap scripts
+- [`codeflow-website`](https://github.com/JustAGhosT/codeflow-website) - Marketing website
 
 ## License
 
