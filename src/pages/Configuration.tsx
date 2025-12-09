@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import Form from '@rjsf/shadcn';
 import { RJSFSchema } from '@rjsf/utils';
 import { IChangeEvent } from '@rjsf/core';
@@ -113,7 +113,7 @@ const Configuration: React.FC = () => {
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Configuration</h1>
         <p className="mt-2 text-gray-600 dark:text-gray-400">
-          Edit the AutoPR engine's configuration
+          Edit the CodeFlow engine's configuration
           {hasChanges && (
             <span className="ml-2 text-orange-600 dark:text-orange-400">
               (Unsaved changes)

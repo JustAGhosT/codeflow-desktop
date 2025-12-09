@@ -1,6 +1,6 @@
-# AutoPR Desktop - Deployment Guide
+﻿# CodeFlow Desktop - Deployment Guide
 
-This guide covers building and deploying AutoPR Desktop for production.
+This guide covers building and deploying CodeFlow Desktop for production.
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ Ensure all development dependencies are installed:
 
 ```bash
 # Navigate to the desktop app directory
-cd autopr-desktop
+cd codeflow-desktop
 
 # Install dependencies
 npm install
@@ -84,10 +84,10 @@ npm run tauri build -- --features "feature1,feature2"
 #### Code Signing (Windows)
 ```powershell
 # Sign the executable
-signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com /fd SHA256 autopr-desktop.exe
+signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com /fd SHA256 codeflow-desktop.exe
 
 # Verify signature
-signtool verify /pa autopr-desktop.exe
+signtool verify /pa codeflow-desktop.exe
 ```
 
 ### macOS
@@ -109,13 +109,13 @@ npm run tauri build -- --target universal-apple-darwin
 #### Code Signing (macOS)
 ```bash
 # Sign the app
-codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name" autopr-desktop.app
+codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name" codeflow-desktop.app
 
 # Create notarized dmg
-xcrun notarytool submit autopr-desktop.dmg --apple-id user@example.com --password app-specific-password --team-id TEAM_ID
+xcrun notarytool submit codeflow-desktop.dmg --apple-id user@example.com --password app-specific-password --team-id TEAM_ID
 
 # Staple the notarization
-xcrun stapler staple autopr-desktop.dmg
+xcrun stapler staple codeflow-desktop.dmg
 ```
 
 ### Linux
@@ -209,9 +209,9 @@ Host installers on your website or GitHub Releases:
 ```bash
 # Create a new release
 gh release create v1.0.0 \
-  src-tauri/target/release/bundle/msi/autopr-desktop.msi \
-  src-tauri/target/release/bundle/dmg/autopr-desktop.dmg \
-  src-tauri/target/release/bundle/deb/autopr-desktop.deb
+  src-tauri/target/release/bundle/msi/codeflow-desktop.msi \
+  src-tauri/target/release/bundle/dmg/codeflow-desktop.dmg \
+  src-tauri/target/release/bundle/deb/codeflow-desktop.deb
 ```
 
 ### Windows Store
@@ -240,7 +240,7 @@ gh release create v1.0.0 \
 debuild -S
 
 # Upload to Launchpad
-dput ppa:your-ppa autopr-desktop_1.0.0_source.changes
+dput ppa:your-ppa codeflow-desktop_1.0.0_source.changes
 ```
 
 **AUR (Arch User Repository):**
@@ -297,15 +297,15 @@ Create flatpak manifest and submit to Flathub
   "platforms": {
     "windows-x86_64": {
       "signature": "BASE64_SIGNATURE",
-      "url": "https://your-domain.com/releases/autopr-desktop-1.0.1.msi"
+      "url": "https://your-domain.com/releases/codeflow-desktop-1.0.1.msi"
     },
     "darwin-x86_64": {
       "signature": "BASE64_SIGNATURE",
-      "url": "https://your-domain.com/releases/autopr-desktop-1.0.1.dmg"
+      "url": "https://your-domain.com/releases/codeflow-desktop-1.0.1.dmg"
     },
     "linux-x86_64": {
       "signature": "BASE64_SIGNATURE",
-      "url": "https://your-domain.com/releases/autopr-desktop-1.0.1.AppImage"
+      "url": "https://your-domain.com/releases/codeflow-desktop-1.0.1.AppImage"
     }
   }
 }
@@ -384,25 +384,25 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd autopr-desktop
+          cd codeflow-desktop
           npm install
 
       - name: Build application
         run: |
-          cd autopr-desktop
+          cd codeflow-desktop
           npm run tauri build
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.platform }}-build
-          path: autopr-desktop/src-tauri/target/release/bundle/
+          path: codeflow-desktop/src-tauri/target/release/bundle/
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: autopr-desktop/src-tauri/target/release/bundle/**/*
+          files: codeflow-desktop/src-tauri/target/release/bundle/**/*
 ```
 
 ## Troubleshooting
@@ -428,7 +428,7 @@ jobs:
 - Build reputation over time (100+ downloads)
 
 **macOS notarization fails**
-- Check hardened runtime: `codesign --display --verbose autopr-desktop.app`
+- Check hardened runtime: `codesign --display --verbose codeflow-desktop.app`
 - Verify entitlements
 - Check Apple Developer account status
 

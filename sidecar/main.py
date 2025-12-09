@@ -1,8 +1,8 @@
-import asyncio
+﻿import asyncio
 import logging
 import uvicorn
 from fastapi import FastAPI, WebSocket
-from codeflow_engine.engine import AutoPREngine
+from codeflow_engine.engine import CodeFlowEngine
 from .websocket_handler import WebSocketHandler
 
 app = FastAPI()
@@ -17,7 +17,7 @@ def read_root():
 
 @app.get("/status")
 async def get_status():
-    engine = AutoPREngine()
+    engine = CodeFlowEngine()
     return engine.get_status()
 
 @app.websocket("/ws/logs")
@@ -27,7 +27,7 @@ async def websocket_endpoint(websocket: WebSocket):
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
 
-    engine = AutoPREngine(log_handler=handler)
+    engine = CodeFlowEngine(log_handler=handler)
 
     try:
         while True:

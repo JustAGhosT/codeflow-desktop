@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '../components/ui/button';
 import { Clipboard, Trash2, Download, Search, AlertCircle, CheckCircle } from 'lucide-react';
 
@@ -92,7 +92,7 @@ const Logs: React.FC = () => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `autopr-logs-${new Date().toISOString()}.txt`;
+      a.download = `codeflow-logs-${new Date().toISOString()}.txt`;
       a.click();
       URL.revokeObjectURL(url);
       showToast('Logs downloaded', 'success');
@@ -121,12 +121,12 @@ const Logs: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">Logs</h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400 flex items-center gap-2">
-            Real-time logs from the AutoPR engine
+            Real-time logs from the CodeFlow engine
             <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${
               isConnected ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 
               'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
             }`}>
-              {isConnected ? '● Connected' : '● Disconnected'}
+              {isConnected ? 'â— Connected' : 'â— Disconnected'}
             </span>
           </p>
         </div>

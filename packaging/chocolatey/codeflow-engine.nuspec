@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Chocolatey package for CodeFlow Engine -->
 <!-- Install with: choco install codeflow-engine -->
 <!-- Build with: choco pack -->
@@ -42,7 +42,7 @@ $env:OPENAI_API_KEY = "sk-your_key"
 Then run:
 
 ```powershell
-autopr --help
+codeflow --help
 ```
 
 ## Requirements

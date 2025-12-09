@@ -1,4 +1,4 @@
-{
+﻿{
   "$defs": {
     "AILintingConfig": {
       "description": "AI Linting Fixer specific configuration.",
@@ -896,19 +896,19 @@
       "properties": {
         "pr": {
           "default": 500,
-          "env": "AUTOPR_VOLUME_PR",
+          "env": "CODEFLOW_VOLUME_PR",
           "title": "Pr",
           "type": "integer"
         },
         "dev": {
           "default": 500,
-          "env": "AUTOPR_VOLUME_DEV",
+          "env": "CODEFLOW_VOLUME_DEV",
           "title": "Dev",
           "type": "integer"
         },
         "checkin": {
           "default": 500,
-          "env": "AUTOPR_VOLUME_CHECKIN",
+          "env": "CODEFLOW_VOLUME_CHECKIN",
           "title": "Checkin",
           "type": "integer"
         }
@@ -955,12 +955,12 @@
     }
   },
   "additionalProperties": true,
-  "description": "Main settings class for AutoPR Engine.\n\nThis class combines all configuration sections and provides\nenvironment-specific loading, validation, and management.",
+  "description": "Main settings class for CODEFLOW Engine.\n\nThis class combines all configuration sections and provides\nenvironment-specific loading, validation, and management.",
   "properties": {
     "environment": {
       "$ref": "#/$defs/Environment",
       "default": "development",
-      "env": "AUTOPR_ENVIRONMENT"
+      "env": "CODEFLOW_ENVIRONMENT"
     },
     "debug": {
       "default": false,
@@ -970,7 +970,7 @@
     },
     "version": {
       "default": "1.0.0",
-      "env": "AUTOPR_VERSION",
+      "env": "CODEFLOW_VERSION",
       "title": "Version",
       "type": "string"
     },
@@ -1010,6 +1010,6 @@
       "type": "object"
     }
   },
-  "title": "AutoPRSettings",
+  "title": "CODEFLOWSettings",
   "type": "object"
 }

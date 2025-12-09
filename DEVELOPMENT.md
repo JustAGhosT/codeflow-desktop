@@ -1,6 +1,6 @@
-# AutoPR Desktop - Development Guide
+﻿# CodeFlow Desktop - Development Guide
 
-This guide provides detailed information for developers working on the AutoPR Desktop application.
+This guide provides detailed information for developers working on the CodeFlow Desktop application.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This guide provides detailed information for developers working on the AutoPR De
 
 1. **Clone the repository and navigate to the desktop app:**
    ```bash
-   cd autopr-desktop
+   cd codeflow-desktop
    ```
 
 2. **Install all dependencies:**
@@ -36,7 +36,7 @@ This guide provides detailed information for developers working on the AutoPR De
    ```
 
 3. **Set up environment variables (optional):**
-   Create a `.env` file in the `autopr-desktop` directory:
+   Create a `.env` file in the `codeflow-desktop` directory:
    ```env
    VITE_WEBSOCKET_URL=ws://localhost:8765
    VITE_API_BASE_URL=http://localhost:8000
@@ -78,43 +78,43 @@ Add to `.vscode/settings.json`:
 
 ```
 src/
-├── App.tsx                 # Root component with routing
-├── main.tsx                # Application entry point
-├── pages/                  # Page components
-│   ├── Dashboard.tsx       # Main dashboard view
-│   ├── Configuration.tsx   # Settings and config editor
-│   ├── PlatformAnalytics.tsx  # Platform detection results
-│   └── Logs.tsx            # Real-time log viewer
-├── components/             # Reusable UI components
-│   └── ui/                 # shadcn/ui components
-│       ├── button.tsx
-│       ├── card.tsx
-│       └── badge.tsx
-├── assets/                 # Static assets
-└── schema.json            # JSON schema for configuration
+â”œâ”€â”€ App.tsx                 # Root component with routing
+â”œâ”€â”€ main.tsx                # Application entry point
+â”œâ”€â”€ pages/                  # Page components
+â”‚   â”œâ”€â”€ Dashboard.tsx       # Main dashboard view
+â”‚   â”œâ”€â”€ Configuration.tsx   # Settings and config editor
+â”‚   â”œâ”€â”€ PlatformAnalytics.tsx  # Platform detection results
+â”‚   â””â”€â”€ Logs.tsx            # Real-time log viewer
+â”œâ”€â”€ components/             # Reusable UI components
+â”‚   â””â”€â”€ ui/                 # shadcn/ui components
+â”‚       â”œâ”€â”€ button.tsx
+â”‚       â”œâ”€â”€ card.tsx
+â”‚       â””â”€â”€ badge.tsx
+â”œâ”€â”€ assets/                 # Static assets
+â””â”€â”€ schema.json            # JSON schema for configuration
 ```
 
 ### Backend (`src-tauri/`)
 
 ```
 src-tauri/
-├── src/
-│   ├── main.rs            # Tauri app initialization
-│   └── lib.rs             # Core library with IPC handlers
-├── tauri.conf.json        # Tauri configuration
-├── Cargo.toml             # Rust dependencies
-└── capabilities/          # Tauri permissions
-    └── default.json
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ main.rs            # Tauri app initialization
+â”‚   â””â”€â”€ lib.rs             # Core library with IPC handlers
+â”œâ”€â”€ tauri.conf.json        # Tauri configuration
+â”œâ”€â”€ Cargo.toml             # Rust dependencies
+â””â”€â”€ capabilities/          # Tauri permissions
+    â””â”€â”€ default.json
 ```
 
 ### Python Sidecar (`sidecar/`)
 
 ```
 sidecar/
-├── main.py                # Sidecar entry point
-├── websocket_handler.py   # WebSocket server for live updates
-├── generate_schema.py     # Schema generation utility
-└── requirements.txt       # Python dependencies
+â”œâ”€â”€ main.py                # Sidecar entry point
+â”œâ”€â”€ websocket_handler.py   # WebSocket server for live updates
+â”œâ”€â”€ generate_schema.py     # Schema generation utility
+â””â”€â”€ requirements.txt       # Python dependencies
 ```
 
 ## Development Workflow
@@ -168,24 +168,24 @@ npm run dev
 ### Communication Flow
 
 ```
-┌─────────────────┐
-│  React Frontend │
-│   (TypeScript)  │
-└────────┬────────┘
-         │ IPC
-         ├──────────┐
-         │          │
-    ┌────▼────┐  ┌─▼─────────┐
-    │  Tauri  │  │ WebSocket │
-    │  (Rust) │  │  (Python) │
-    └────┬────┘  └─┬─────────┘
-         │         │
-         └─────┬───┘
-               │
-         ┌─────▼──────┐
-         │   AutoPR   │
-         │   Engine   │
-         └────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  React Frontend â”‚
+â”‚   (TypeScript)  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â”‚ IPC
+         â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+         â”‚          â”‚
+    â”Œâ”€â”€â”€â”€â–¼â”€â”€â”€â”€â”  â”Œâ”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+    â”‚  Tauri  â”‚  â”‚ WebSocket â”‚
+    â”‚  (Rust) â”‚  â”‚  (Python) â”‚
+    â””â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”˜  â””â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â”‚         â”‚
+         â””â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”˜
+               â”‚
+         â”Œâ”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”
+         â”‚   CodeFlow   â”‚
+         â”‚   Engine   â”‚
+         â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### IPC (Inter-Process Communication)

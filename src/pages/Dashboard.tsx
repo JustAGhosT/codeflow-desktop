@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
@@ -68,7 +68,7 @@ const Dashboard: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">Dashboard</h1>
           <p className="mt-2 text-gray-600 dark:text-gray-400">
-            Real-time status of the AutoPR engine
+            Real-time status of the CodeFlow engine
           </p>
         </div>
         <div className="flex items-center gap-4">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Home, Settings, FileText, Moon, Sun, BarChart3 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
@@ -96,7 +96,7 @@ function AppContent() {
     <div className="flex h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
       <aside className="w-64 bg-white dark:bg-gray-800 shadow-md">
         <div className="p-6 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">AutoPR</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">CodeFlow</h1>
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -117,7 +117,7 @@ function AppContent() {
         </nav>
         <div className="absolute bottom-4 left-4 right-4 text-sm text-gray-500 dark:text-gray-400 text-center">
           <p>v1.0.0</p>
-          <p className="text-xs mt-1">© 2024 AutoPR Engine</p>
+          <p className="text-xs mt-1">Â© 2024 CodeFlow Engine</p>
         </div>
       </aside>
       <main className="flex-1 p-6 overflow-y-auto" role="main">

@@ -1,4 +1,4 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+﻿// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
@@ -18,7 +18,7 @@ async fn get_status() -> Result<String, String> {
 #[tauri::command]
 fn read_config() -> Result<String, String> {
     let home = std::env::var("HOME").map_err(|e| e.to_string())?;
-    let config_path = std::path::Path::new(&home).join(".autopr.yaml");
+    let config_path = std::path::Path::new(&home).join(".codeflow.yaml");
     let config = std::fs::read_to_string(config_path).map_err(|e| e.to_string())?;
     Ok(config)
 }
@@ -26,7 +26,7 @@ fn read_config() -> Result<String, String> {
 #[tauri::command]
 fn write_config(config: String) -> Result<(), String> {
     let home = std::env::var("HOME").map_err(|e| e.to_string())?;
-    let config_path = std::path::Path::new(&home).join(".autopr.yaml");
+    let config_path = std::path::Path::new(&home).join(".codeflow.yaml");
     std::fs::write(config_path, config).map_err(|e| e.to_string())?;
     Ok(())
 }

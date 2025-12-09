@@ -1,4 +1,4 @@
-# Homebrew formula for AutoPR Engine
+﻿# Homebrew formula for CodeFlow Engine
 # Install with: brew install JustAGhosT/tap/codeflow-engine
 # Or tap first: brew tap JustAGhosT/tap && brew install codeflow-engine
 
@@ -39,30 +39,30 @@ class CodeflowEngine < Formula
     virtualenv_install_with_resources
 
     # Generate shell completions
-    generate_completions_from_executable(bin/"autopr", shells: [:bash, :zsh, :fish], shell_parameter_format: :click)
+    generate_completions_from_executable(bin/"CodeFlow", shells: [:bash, :zsh, :fish], shell_parameter_format: :click)
   end
 
   def caveats
     <<~EOS
-      AutoPR Engine has been installed!
+      CodeFlow Engine has been installed!
 
       To get started, set up your API keys:
         export GITHUB_TOKEN=ghp_your_token
         export OPENAI_API_KEY=sk-your_key
 
       Then run:
-        autopr --help
+        CodeFlow --help
 
-      To add AutoPR to a GitHub repository:
+      To add CodeFlow to a GitHub repository:
         cd your-repo
-        autopr init
+        CodeFlow init
 
       Documentation: https://github.com/JustAGhosT/codeflow-engine
     EOS
   end
 
   test do
-    assert_match "AutoPR Engine", shell_output("#{bin}/autopr --version")
-    assert_match "Usage:", shell_output("#{bin}/autopr --help")
+    assert_match "CodeFlow Engine", shell_output("#{bin}/CodeFlow --version")
+    assert_match "Usage:", shell_output("#{bin}/CodeFlow --help")
   end
 end

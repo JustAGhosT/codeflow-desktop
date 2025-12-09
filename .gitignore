@@ -43,3 +43,7 @@ venv/
 
 # Tauri
 src-tauri/target/
+
+# Credentials and sensitive files
+.credentials-*.json
+deployment-output.json

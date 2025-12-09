@@ -1,8 +1,8 @@
-# Chocolatey install script for AutoPR Engine
+﻿# Chocolatey install script for CodeFlow Engine
 
 $ErrorActionPreference = 'Stop'
 
-$packageName = 'autopr-engine'
+$packageName = 'codeflow-engine'
 $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
 # Check Python installation
@@ -23,21 +23,21 @@ if ($pythonVersion -match "Python (\d+)\.(\d+)") {
     }
 }
 
-Write-Host "Installing AutoPR Engine via pip..."
-pip install autopr-engine
+Write-Host "Installing CodeFlow Engine via pip..."
+pip install codeflow-engine
 
 if ($LASTEXITCODE -ne 0) {
-    throw "Failed to install AutoPR Engine"
+    throw "Failed to install CodeFlow Engine"
 }
 
 Write-Host ""
-Write-Host "AutoPR Engine installed successfully!" -ForegroundColor Green
+Write-Host "CodeFlow Engine installed successfully!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
 Write-Host "  1. Set up your API keys:"
 Write-Host '     $env:GITHUB_TOKEN = "ghp_your_token"'
 Write-Host '     $env:OPENAI_API_KEY = "sk-your_key"'
 Write-Host ""
-Write-Host "  2. Run AutoPR:"
-Write-Host "     autopr --help"
+Write-Host "  2. Run CodeFlow:"
+Write-Host "     CodeFlow --help"
 Write-Host ""
