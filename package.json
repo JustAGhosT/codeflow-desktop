@@ -3,9 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:packages && tsc && vite build",
+    "build:packages": "npm run build --workspace=@codeflow/utils",
     "preview": "vite preview",
     "tauri": "tauri"
   },
@@ -17,6 +21,7 @@
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",
     "class-variance-authority": "^0.7.0",
+    "@codeflow/utils": "workspace:*",
     "clsx": "^2.1.1",
     "js-yaml": "^4.1.1",
     "lucide-react": "^0.554.0",
