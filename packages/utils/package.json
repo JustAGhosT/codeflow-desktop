@@ -14,6 +14,14 @@
     "./tailwind": {
       "import": "./dist/tailwind.js",
       "types": "./dist/tailwind.d.ts"
+    },
+    "./validation": {
+      "import": "./dist/validation/index.js",
+      "types": "./dist/validation/index.d.ts"
+    },
+    "./formatting": {
+      "import": "./dist/formatting/index.js",
+      "types": "./dist/formatting/index.d.ts"
     }
   },
   "files": [
@@ -47,7 +55,9 @@
     "codeflow",
     "utils",
     "utilities",
-    "tailwind"
+    "tailwind",
+    "validation",
+    "formatting"
   ],
   "license": "MIT",
   "repository": {
